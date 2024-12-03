@@ -1,10 +1,11 @@
 import axios from "axios";
 
-PORT = 8080;
+const PORT = 8080;
 
 const axiosInstance = axios.create({
-  baseURL: `http://localhost:${PORT}`,
+  //baseURL: `http://localhost:${PORT}`,
   //baseURL: "https://notes-backend-olive.vercel.app/",
+  baseURL: "https://my-memos-1.onrender.com/",
   timeout: 10000,
   headers: {
     "Content-Type": "application/json",
