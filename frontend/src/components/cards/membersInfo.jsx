@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { FaLinkedin, FaInstagram, FaEnvelope, FaSpotify } from "react-icons/fa"; 
-import nilesh from "../../assets/nilesh.jpg";
-import piyush from "../../assets/piyush.jpg";
-import parul from "../../assets/parul.jpg";
-
+import { FaLinkedin, FaInstagram, FaEnvelope } from "react-icons/fa";
+import piyush from "../../assets/piyush2.jpg";
+import om from "../../assets/om.jpg";
 
 const Team = () => {
   const [visible, setVisible] = useState([]);
+
   const members = [
     {
       name: "Piyush Govindani",
-      role: "Backend Developer",
-      description: "Piyush builds the backend, ensuring smooth server-side processes and efficient API integrations.",
+      role: "Full Stack Developer",
+      description:
+        "Piyush designed and implemented the robust Groups section, enabling seamless group creation, member management, and group-specific notes functionality. He also enhanced the app's user interface for an intuitive experience.",
       photo: piyush,
       socialLinks: {
         linkedin: "https://www.linkedin.com/in/piyush-govindani/",
@@ -20,26 +20,15 @@ const Team = () => {
       },
     },
     {
-      name: "Parul Sharma",
-      role: "Frontend Developer",
-      description: "Parul crafts the frontend with expertise in React, HTML, and CSS to deliver a functional and visually appealing experience.",
-      photo: parul,
+      name: "Om Govindani",
+      role: "Full Stack Developer",
+      description:
+        "Om focused on the individual Notes section, building features like creating, editing, and managing notes efficiently. He also contributed to the frontend design, ensuring a smooth and visually appealing interface.",
+      photo: om,
       socialLinks: {
-        linkedin: "https://www.linkedin.com/in/parul-sharma-95a821336/",
-        instagram: "https://www.instagram.com/parul_sharma303/?__pwa=1#",
-        email: "parul@example.com",
-      },
-    },
-    {
-      name: "Nilesh Panchal",
-      role: "UI/UX Designer & Music Producer",
-      description: "Nilesh brings creative UI/UX designs, combining user-centered design with his unique music production perspective.",
-      photo: nilesh,
-      socialLinks: {
-        linkedin: "https://www.linkedin.com/in/nileshpanchal",
-        instagram: "https://www.instagram.com/_nilesh_panchal__/?__pwa=1#",
-        spotify: "https://l.instagram.com/?u=https%3A%2F%2Fopen.spotify.com%2Fartist%2F53jLbrhSb6wHQlnjrXVL2I%3Fsi%3DmTS4dBdBRYium2KvE_4k1Q%26utm_source%3Dcopy-link%26fbclid%3DPAZXh0bgNhZW0CMTEAAabEucjyjj47C43Ai8Pa-2D08e1sX96T1uyksLUhdMoxCSA8TARSJfqqWwE_aem_e54FoIuJSNs4GP_U5TqBVg&e=AT368RHF7AcxOAglaNMu1Gg_Y2_f9cx7I6q5ITBOtRILY9hNTbM7vX6lh9AUl0lkOYWArbNlpsHH0UbYmUjh_HjyA1FwCVdj_reJeW1EsH_ABXHyXaDoJrM",
-        email: "nilesh@example.com",
+        linkedin: "https://www.linkedin.com/in/om-govindani/",
+        instagram: "https://www.instagram.com/dichotomyofame/?__pwa=1#",
+        email: "omgovindani@gmail.com",
       },
     },
   ];
@@ -65,41 +54,42 @@ const Team = () => {
   return (
     <div className="container mx-auto mt-10 px-4">
       <h1 className="text-4xl font-bold text-center">Meet Our Team</h1>
-      <div className="grid grid-cols-1 mt-10 md:mt-32 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 mt-10 sm:grid-cols-2 gap-10">
         {members.map((member, index) => (
           <div
             key={index}
             id={`team-card-${index}`}
-            className={`team-card bg-white shadow-lg rounded-lg mt-20 md:mt-4 overflow-visible text-center transform transition-all duration-700 hover:scale-105 h-[310px] ${
+            className={`team-card flex md:h-[450px] h-[750px] flex-col sm:flex-row bg-white shadow-lg rounded-lg border-4 hover:border-blue-500 border-gray-300 overflow-hidden transform transition-all duration-700 hover:scale-105 p-4 relative ${
               visible.includes(`team-card-${index}`)
-                ? "opacity-100 translate-y-0 scale-100 blur-0"
-                : "opacity-0 translate-y-12 scale-95 blur-sm"
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 translate-y-12 scale-95"
             }`}
           >
+            {/* Animated Border */}
+            <div className="absolute inset-0 border-4 border-transparent transition duration-300 rounded-lg" />
             {/* Image Section */}
-            <div className="relative">
-              <div className="absolute inset-x-0 -top-24">
-                <img
-                  src={member.photo}
-                  alt={`${member.name}'s photo`}
-                  className="w-40 h-40 mx-auto rounded-full object-cover border-4 border-white shadow-lg transform transition-transform duration-300 hover:scale-110 hover:shadow-2xl"
-                />
-              </div>
+            <div className="w-full sm:w-1/2 bg-gray-200 overflow-hidden relative group">
+              <img
+                src={member.photo}
+                alt={`${member.name}'s photo`}
+                className="h-[300px] md:h-[450px] w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
-            {/* Card Content */}
-            <div className="pt-24 px-6">
-              <h2 className="text-2xl font-semibold">{member.name}</h2>
-              <p className="text-gray-600">{member.role}</p>
-              <p className="text-gray-700 mt-2">{member.description}</p>
-
+            {/* Description Section */}
+            <div className="w-full sm:w-1/2 p-6 flex flex-col justify-between bg-white relative z-10">
+              <div>
+                <h2 className="text-2xl font-semibold">{member.name}</h2>
+                <p className="text-gray-600">{member.role}</p>
+                <p className="text-gray-700 mt-4 leading-relaxed">{member.description}</p>
+              </div>
               {/* Social Links Section */}
-              <div className="mt-4 flex justify-center space-x-4">
+              <div className="mt-6 flex justify-center space-x-6">
                 {member.socialLinks.linkedin && (
                   <a
                     href={member.socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-700 text-xl transform transition duration-300 hover:scale-110"
+                    className="text-blue-700 text-2xl transform transition duration-300 hover:scale-110"
                   >
                     <FaLinkedin />
                   </a>
@@ -109,19 +99,9 @@ const Team = () => {
                     href={member.socialLinks.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pink-500 text-xl transform transition duration-300 hover:scale-110"
+                    className="text-pink-500 text-2xl transform transition duration-300 hover:scale-110"
                   >
                     <FaInstagram />
-                  </a>
-                )}
-                {member.socialLinks.spotify && (
-                  <a
-                    href={member.socialLinks.spotify}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-green-500 text-xl transform transition duration-300 hover:scale-110"
-                  >
-                    <FaSpotify />
                   </a>
                 )}
                 {member.socialLinks.email && (
@@ -129,7 +109,7 @@ const Team = () => {
                     href={`mailto:${member.socialLinks.email}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 text-xl transform transition duration-300 hover:scale-110"
+                    className="text-gray-500 text-2xl transform transition duration-300 hover:scale-110"
                   >
                     <FaEnvelope />
                   </a>
@@ -144,3 +124,4 @@ const Team = () => {
 };
 
 export default Team;
+  
