@@ -50,7 +50,7 @@ const GroupCard = ({ getAllGroups, group, onDelete, onView }) => {
         >
             <h3 className="text-2xl font-semibold text-gray-800">{group.name}</h3>
             <p className="text-gray-600 mt-2">Created by: <span className="font-medium text-blue-600">{userInfo?.name}</span></p>
-            <p className="text-gray-500 mt-1">{userInfo?.createdOn && formatDate(userInfo.createdOn)}</p>
+            <p className="text-gray-500 mt-1">{group?.createdAt && formatDate(group.createdAt)}</p>
             <div className="mt-6 flex justify-between items-center">
                 <button
                     onClick={onView}

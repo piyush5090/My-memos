@@ -4,11 +4,10 @@ import Sidebar from "../components/sidebar";
 import BottomNavbar from "../components/bottomBar"; 
 import Navbar from "../components/Navbar";
 import axiosInstance from "../utils/axiosInstance";
-import Team from "../components/cards/membersInfo"; 
 import Footer from "../components/footer";
 import { useNavigate } from "react-router-dom";
 
-const AboutUs = () => {
+const AboutUs = () => {  
   const [userInfo, setUserInfo] = useState(null);
   const [feedback, setFeedback] = useState(""); 
   const [isFeedbackSubmitted, setIsFeedbackSubmitted] = useState(false); 
@@ -113,25 +112,6 @@ const AboutUs = () => {
               Thank you for choosing <strong>My Memos</strong>. Let's make
               organizing a breeze. Happy note-taking!
             </motion.p>
-
-            {/* Our Team Section */}
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mt-12 text-gray-800"
-              variants={fadeIn}
-            >
-              Our Team
-            </motion.h2>
-            <motion.p
-              className="text-lg md:text-xl text-gray-700 mb-6 leading-relaxed"
-              variants={fadeIn}
-            >
-              Meet the dedicated team behind the development of My Memos.
-              We are passionate about making note-taking seamless and
-              collaborative for everyone.
-            </motion.p>
-
-            {/* Display the Team Component */}
-            <Team /> {/* This renders the team member cards */}
 
             {/* Feedback Section */}
             <motion.div className="mt-12" variants={fadeIn}>

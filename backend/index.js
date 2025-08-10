@@ -305,6 +305,7 @@ app.post("/createGroup", authenticateToken, async (req,res) => {
       name,
       members : [user._id],
       createdBy : user._id,
+      createdAt: Date.now(),
     });
 
     await group.save();

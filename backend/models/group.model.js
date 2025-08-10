@@ -15,7 +15,7 @@ const groupSchema = new Schema({
     },
 ],
     createdBy: { type: String, required: true},
-    createdOn: { type: Date, default: Date.now },
+    createdAt: { type: Date },
 });
 
 module.exports = mongoose.model("Group", groupSchema);
